@@ -23,9 +23,21 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+
     public Task saveTask(@PathVariable Long id){
         return taskService.findAllTasks(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task saveTask(@RequestBody Task task){
+        return taskService.saveTask(task);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteTask(id);
     }
 
 }
