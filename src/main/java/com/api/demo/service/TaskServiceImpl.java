@@ -14,12 +14,13 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task findAllTasks(Long id) {
-        return taskRepository.findById(id).get();
+    public Task findTask(Long id) {
+
+        return taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
     @Override
-    public List<Task> findAllTasks() {
+    public List<Task> findTask() {
         return taskRepository.findAll();
     }
 

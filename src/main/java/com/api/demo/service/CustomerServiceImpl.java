@@ -17,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer findCustomerById(Long id) {
-        return customerRepository.findById(id).get();
+        return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Custom not found"));
     }
 
     @Override
