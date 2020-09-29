@@ -1,8 +1,8 @@
-package com.api.demo.bootstrap;
+package com.api.bootstrap;
 
-import com.api.demo.domain.Task;
-import com.api.demo.repository.CustomerRepository;
-import com.api.demo.repository.TaskRepository;
+import com.api.domain.Task;
+import com.api.repository.CustomerRepository;
+import com.api.repository.TaskRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,8 @@ public class BootStrapData implements CommandLineRunner {
 //
 //        System.out.println("Loading Customer Data");
 //        customerRepository.save(new Customer("Michael","West"));
-//            taskRepository.save(new Task("Second task","AAdded another task to test"));
+//            taskRepository.save(new Task("First task","Added task to test db"));
+//            taskRepository.save(new Task("Second task","Added another task to test"));
 //        System.out.println("Customer Saved: " + customerRepository.count());
     }
 }

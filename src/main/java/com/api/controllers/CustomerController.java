@@ -1,7 +1,7 @@
-package com.api.demo.controllers;
+package com.api.controllers;
 
-import com.api.demo.domain.Customer;
-import com.api.demo.service.CustomerService;
+import com.api.domain.Customer;
+import com.api.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

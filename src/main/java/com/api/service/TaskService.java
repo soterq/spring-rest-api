@@ -1,6 +1,6 @@
-package com.api.demo.service;
+package com.api.service;
 
-import com.api.demo.domain.Task;
+import com.api.domain.Task;
 
 import java.util.List;
 

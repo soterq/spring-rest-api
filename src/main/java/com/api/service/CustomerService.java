@@ -1,6 +1,6 @@
-package com.api.demo.service;
+package com.api.service;
 
-import com.api.demo.domain.Customer;
+import com.api.domain.Customer;
 
 import java.util.List;
 

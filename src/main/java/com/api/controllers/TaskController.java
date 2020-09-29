@@ -1,7 +1,7 @@
-package com.api.demo.controllers;
+package com.api.controllers;
 
-import com.api.demo.domain.Task;
-import com.api.demo.service.TaskService;
+import com.api.domain.Task;
+import com.api.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

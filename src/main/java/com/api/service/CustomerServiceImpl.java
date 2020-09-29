@@ -1,7 +1,8 @@
-package com.api.demo.service;
+package com.api.service;
 
-import com.api.demo.domain.Customer;
-import com.api.demo.repository.CustomerRepository;
+import com.api.domain.Customer;
+import com.api.exceptions.ApiRequestException;
+import com.api.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer findCustomerById(Long id) {
-        return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Custom not found"));
+        return customerRepository.findById(id).orElseThrow(() -> new ApiRequestException("Customer with id "  + id +" not found"));
     }
 
     @Override

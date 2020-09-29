@@ -1,6 +1,6 @@
-package com.api.demo.repository;
+package com.api.repository;
 
-import com.api.demo.domain.Customer;
+import com.api.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer,Long> {

@@ -1,6 +1,6 @@
-package com.api.demo.repository;
+package com.api.repository;
 
-import com.api.demo.domain.Task;
+import com.api.domain.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {

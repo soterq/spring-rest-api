@@ -1,7 +1,8 @@
-package com.api.demo.service;
+package com.api.service;
 
-import com.api.demo.domain.Task;
-import com.api.demo.repository.TaskRepository;
+import com.api.domain.Task;
+import com.api.exceptions.ApiRequestException;
+import com.api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task findTask(Long id) {
-
-        return taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        return taskRepository.findById(id).orElseThrow(() -> new ApiRequestException("Task with id "  + id +" not found"));
     }
 
     @Override
