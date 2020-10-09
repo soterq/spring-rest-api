@@ -5,6 +5,10 @@ import com.api.exceptions.ApiRequestException;
 import com.api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -20,12 +24,15 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> findTask() {
+    public List<Task> findTasks() {
         return taskRepository.findAll();
     }
 
     @Override
     public Task saveTask(Task task) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        task.setCreationDate(dtf.format(now));
         return taskRepository.save(task);
     }
 

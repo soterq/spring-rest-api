@@ -1,5 +1,9 @@
 package com.api.domain;
 
+import com.api.enums.Severity;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +12,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@Getter
+@Setter
 public class Task {
     private @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,49 +21,18 @@ public class Task {
     String title;
     String description;
     String creationDate;
-//    Severity severity;
+    Severity severity;
 
 
-    public Task( String title, String description) {
+    public Task( String title, String description, Severity severity) {
         this.title = title;
         this.description = description;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
         LocalDateTime now = LocalDateTime.now();
         this.creationDate = dtf.format(now);
+        this.severity = severity;
     }
 
     public Task() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(String creationDate) {
-        this.creationDate = creationDate;
     }
 }

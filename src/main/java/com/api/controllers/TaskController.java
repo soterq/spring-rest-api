@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(TaskController.BASE_URL)
+@CrossOrigin
 public class TaskController {
     public static final  String BASE_URL = "/api/v1/tasks";
     private final TaskService  taskService;
@@ -19,7 +20,7 @@ public class TaskController {
 
     @GetMapping
     List<Task> getAllTasks(){
-        return taskService.findTask();
+        return taskService.findTasks();
     }
 
     @GetMapping("/{id}")

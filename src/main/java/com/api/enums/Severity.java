@@ -1,2 +1,5 @@
-package com.api.domain;public enum Severity {
+package com.api.enums;
+
+public enum Severity {
+    LOW,MEDIUM,HIGH
 }
