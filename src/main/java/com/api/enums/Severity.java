@@ -1,5 +1,15 @@
 package com.api.enums;
 
 public enum Severity {
-    LOW,MEDIUM,HIGH
+   LOW("low"), MEDIUM("Medium"),HIGH ("High");
+
+   private final String fieldDescription;
+
+   private Severity(String value) {
+      fieldDescription = value;
+   }
+
+   public String getFieldDescription() {
+      return fieldDescription;
+   }
 }

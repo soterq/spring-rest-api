@@ -30,6 +30,9 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task saveTask(Task task) {
+        if(task.getTitle().isEmpty() || task.getTitle()==null){
+            throw new ApiRequestException("Title should not be null");
+        }
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         task.setCreationDate(dtf.format(now));
