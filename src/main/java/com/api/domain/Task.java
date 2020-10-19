@@ -20,7 +20,7 @@ public class Task {
     private @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    @NotBlank(message = "Title can not be empty")
+//    @NotBlank(message = "Title can not be empty")
     String title;
     String description;
     LocalDateTime creationDate;

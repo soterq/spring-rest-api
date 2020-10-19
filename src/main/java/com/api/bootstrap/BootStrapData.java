@@ -32,20 +32,20 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println("Loading Plan Data");
-        Set<Languages> languages = new HashSet<>();
-        languages.add(Languages.ROMANA);
-        languages.add(Languages.ENGLEZA);
-        languages.add(Languages.RUSA);
-        Plan plan = new Plan();
-        Place place = new Place("Botanic Garden", "Amazing  park a lot of plants", languages, "", "A huge amount of plants");
-        Set<Place> places = new HashSet<>();
-        places.add(place);
-        plan.setTitle("Spring Forum Test ... ");
-        plan.setPlaces(places.stream().collect(Collectors.toList()));
-        planRepository.save(plan);
-        place.setPlan(plan);
-        placeRepository.save(place);
+//        System.out.println("Loading Plan Data");
+//        Set<Languages> languages = new HashSet<>();
+//        languages.add(Languages.ROMANA);
+//        languages.add(Languages.ENGLEZA);
+//        languages.add(Languages.RUSA);
+//        Plan plan = new Plan();
+//        Place place = new Place("Botanic Garden", "Amazing  park a lot of plants", languages, "", "A huge amount of plants");
+//        Set<Place> places = new HashSet<>();
+//        places.add(place);
+//        plan.setTitle("Spring Forum Test ... ");
+//        plan.setPlaces(places.stream().collect(Collectors.toList()));
+//        planRepository.save(plan);
+//        place.setPlan(plan);
+//        placeRepository.save(place);
 
     }
 }

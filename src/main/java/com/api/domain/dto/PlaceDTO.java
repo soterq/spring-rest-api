@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 public class PlaceDTO {
     private Long id;
     private String name;
