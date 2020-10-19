@@ -2,6 +2,7 @@ package com.api.service;
 
 import com.api.domain.Task;
 import com.api.exceptions.ApiRequestException;
+import com.api.helpers.DataAndTimeHelper;
 import com.api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,9 +34,7 @@ public class TaskServiceImpl implements TaskService {
         if(task.getTitle().isEmpty() || task.getTitle()==null){
             throw new ApiRequestException("Title should not be null");
         }
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        task.setCreationDate(dtf.format(now));
+        task.setCreationDate(DataAndTimeHelper.getCurrentDataAndTime());
         return taskRepository.save(task);
     }
 

@@ -1,6 +1,7 @@
 package com.api.domain;
 
 import com.api.enums.Severity;
+import com.api.helpers.DataAndTimeHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Getter
@@ -18,18 +20,17 @@ public class Task {
     private @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+    @NotBlank(message = "Title can not be empty")
     String title;
     String description;
-    String creationDate;
+    LocalDateTime creationDate;
     Severity severity;
 
 
     public Task( String title, String description, Severity severity) {
         this.title = title;
         this.description = description;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-        LocalDateTime now = LocalDateTime.now();
-        this.creationDate = dtf.format(now);
+        this.creationDate = DataAndTimeHelper.getCurrentDataAndTime();
         this.severity = severity;
     }
 

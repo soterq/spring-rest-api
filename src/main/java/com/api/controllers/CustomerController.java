@@ -1,7 +1,6 @@
 package com.api.controllers;
 
 import com.api.domain.Customer;
-import com.api.domain.PostTest;
 import com.api.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -36,8 +35,5 @@ public class CustomerController {
         return customerServices.saveCostumer(customer);
     }
 
-    @PostMapping("/test")
-    public String saveCustomer(@RequestBody PostTest postTest) {
-        return "PostIsWorking " + postTest.toString();
-    }
+
 }

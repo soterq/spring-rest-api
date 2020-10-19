@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Nav} from "react-bootstrap";
 
 class TaskList
     extends Component {
@@ -39,7 +40,9 @@ class TaskList
                     {this.state.tasks.map((task) => (
                                 <div className="card text-white bg-info mb-3" style={{width: "18rem"}} key={task.id}>
                                     <div className="card-body">
-                                        <h5 className="card-title">{task.title}</h5>
+                                        <h5 className="card-title">
+                                            <Nav.Link href="/postTest"> {task.title}</Nav.Link>
+                                           </h5>
                                         <h5 className="card-subtitle mb-2 text-muted">{task.severity}</h5>
                                         {/*<p className="card-text">{task.description}</p>*/}
                                         {/*<h5 className="card-subtitle mb-2 text-muted">{task.creationDate}</h5>*/}

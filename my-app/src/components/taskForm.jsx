@@ -7,12 +7,8 @@ class TaskForm
         this.state = {
             title: '',
             description: '',
-            severity: ''
+            severity: '0'
         };
-    }
-
-    componentDidMount() {
-        this.setState({severity: 0})
     }
 
     handleChange = (event) => {
@@ -37,17 +33,16 @@ class TaskForm
     }
 
     render() {
-        return (<div className="container">
-            <form autoComplete="nope" onSubmit={this.handleSubmit}>
+        return (<div className="container align-self-auto p-5">
+            <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label name="titleField">Title</label>
-                    <input className="form-control" id="title" type="text" value={this.state.value} name="title"
-                           onChange={this.handleChange}/>
+                    <label  name="titleField">Title</label>
+                    <input  placeholder="Enter Title Here ..." className="form-control" id="title" type="text" value={this.state.value} name="title" onChange={this.handleChange}/>
                 </div>
                 <div className="form-group">
                     <div className="container"/>
                     <label>Severity</label>
-                    <select id="severitylevel" className="severity-Block" name="severity" onChange={this.handleChange}>
+                    <select id="severitylevel" className="custom-select  severity-Block" name="severity" onChange={this.handleChange}>
                         <option value="0">Low</option>
                         <option value="1">Medium</option>
                         <option value="2">High</option>
@@ -57,7 +52,7 @@ class TaskForm
                     <label name="DescriptionLabel">Description</label>
                     <textarea className="form-control" name="description" onChange={this.handleChange}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary btn-lg">Submit</button>
             </form>
         </div>);
     }
