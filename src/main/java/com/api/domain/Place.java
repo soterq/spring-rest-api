@@ -1,13 +1,11 @@
 package com.api.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Setter
@@ -26,8 +24,9 @@ public class Place {
     private Set<Languages> spokenLanguage;
     private String commodities;
     private String features;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime lastVisit;
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String lastVisit;
+    private String beThereAt;
     @ManyToOne
     @JoinColumn(name = "plan_id",referencedColumnName = "id")
     @EqualsAndHashCode.Exclude private Plan plan;

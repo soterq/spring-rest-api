@@ -10,6 +10,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface TaskDTOToTaskMapper {
     TaskDTOToTaskMapper Instance = Mappers.getMapper(TaskDTOToTaskMapper.class);
+
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "title", target = "title"),

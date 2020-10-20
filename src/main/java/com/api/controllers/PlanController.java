@@ -1,6 +1,7 @@
 package com.api.controllers;
 
 import com.api.domain.Plan;
+import com.api.domain.dto.PlanDTO;
 import com.api.service.PlanService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +19,18 @@ public class PlanController {
     }
 
     @GetMapping
-    public List<Plan> getAllPlans() {
+    public List<PlanDTO> getAllPlans() {
         return planService.getAllPlans();
     }
 
     @GetMapping("/{id}")
-    public Plan getPlanById(@PathVariable Long id) {
+    public PlanDTO getPlanById(@PathVariable Long id) {
         return planService.getPlan(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Plan createPlan(@RequestBody Plan plan) {
+    public Plan createPlan(@RequestBody PlanDTO plan) {
         return planService.savePlan(plan);
     }
 

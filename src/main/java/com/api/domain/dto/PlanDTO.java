@@ -1,7 +1,5 @@
 package com.api.domain.dto;
 
-import com.api.domain.Place;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +10,7 @@ import java.util.List;
 @Setter
 public class PlanDTO {
     private Long id;
-    private String Title;
-    private List<Place> places = new ArrayList<>();
+    private String title;
+    private List<PlaceDTO> places = new ArrayList<>();
 
 }

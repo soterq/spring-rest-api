@@ -16,15 +16,16 @@ public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String Title;
+    private String title;
     @OneToMany(mappedBy = "plan")
-    @EqualsAndHashCode.Exclude private List<Place> places = new ArrayList<>();
+    @EqualsAndHashCode.Exclude
+    private List<Place> places = new ArrayList<>();
 
     public Plan() {
     }
 
     public Plan(String title, List<Place> places) {
-        Title = title;
+        this.title = title;
         this.places = places;
     }
 }

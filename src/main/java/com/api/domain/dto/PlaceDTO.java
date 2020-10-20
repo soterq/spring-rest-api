@@ -5,12 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
 @Setter
-
 public class PlaceDTO {
     private Long id;
     private String name;
@@ -18,5 +16,6 @@ public class PlaceDTO {
     private Set<Languages> spokenLanguage;
     private String commodities;
     private String features;
-    private LocalDateTime lastVisit;
+    private String lastVisit;
+    private String beThereAt;
 }
