@@ -20,5 +20,5 @@ public interface PlaceDtoToPlaceMapper {
             @Mapping(source = "features", target = "features"),
             @Mapping(source = "lastVisit", target = "lastVisit"),
     })
-    Place toDto(PlaceDTO place);
+    Place fromDto(PlaceDTO place);
 }

@@ -1,7 +1,6 @@
 package com.api.domain.dto;
 
 import com.api.domain.Languages;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

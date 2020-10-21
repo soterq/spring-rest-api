@@ -1,8 +1,6 @@
 package com.api.service;
 
-import com.api.domain.Place;
 import com.api.domain.Plan;
-import com.api.domain.dto.PlaceDTO;
 import com.api.domain.dto.PlanDTO;
 import com.api.exceptions.ApiRequestException;
 import com.api.mappers.PlanDTOToPlanMapper;

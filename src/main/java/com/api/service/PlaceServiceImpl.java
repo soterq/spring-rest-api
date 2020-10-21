@@ -40,7 +40,7 @@ public class PlaceServiceImpl implements PlaceService {
         if(place.getName().isEmpty() || place.getName()==null){
             throw new ApiRequestException("Name should not be null");
         }
-        return placeRepository.save(PlaceDtoToPlaceMapper.INSTANCE.toDto(place));
+        return placeRepository.save(PlaceDtoToPlaceMapper.INSTANCE.fromDto(place));
     }
 
 }
