@@ -22,14 +22,16 @@ public class MailSenderController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public void sendSimpleMessage(@RequestBody MailMessageDto mailMessageDto) {
         SimpleMailMessage message = new SimpleMailMessage();
         MailMessage mailMessage = MailMessageMapper.INSTANCE.fromDto(mailMessageDto);
         message.setFrom(mailMessage.getSendFrom());
         message.setTo(sendTo);
         message.setSubject(mailMessage.getTitle());
-        message.setText(mailMessage.getMessage());
+        String text ="Message from : " + mailMessage.getSendFrom() + "\n" +
+                "Message : \n" + mailMessage.getMessage();
+        message.setText(text);
         emailSender.send(message);
     }
 
