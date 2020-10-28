@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TaskService {
 
-    TaskDTO findTask(Long id);
-    List<TaskDTO> findTasks();
-    Task saveTask(TaskDTO task);
+    Task findTask(Long id);
+    List<Task> findTasks();
+    Task saveTask(Task task);
 
     void deleteTask(Long id);
 }

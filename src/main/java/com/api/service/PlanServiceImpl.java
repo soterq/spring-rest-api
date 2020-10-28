@@ -1,42 +1,41 @@
 package com.api.service;
 
+import com.api.domain.Place;
 import com.api.domain.Plan;
-import com.api.domain.dto.PlanDTO;
 import com.api.exceptions.ApiRequestException;
-import com.api.mappers.PlanDTOToPlanMapper;
-import com.api.mappers.PlanToPlanDTOMapper;
+import com.api.repository.PlaceRepository;
 import com.api.repository.PlanRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PlanServiceImpl implements PlanService {
     public final PlanRepository planRepository;
+    public final PlaceRepository placeRepository;
 
-    public PlanServiceImpl(PlanRepository planRepository) {
+    public PlanServiceImpl(PlanRepository planRepository, PlaceRepository placeRepository) {
         this.planRepository = planRepository;
+        this.placeRepository = placeRepository;
     }
 
     @Override
-    public PlanDTO getPlan(Long id) {
-        Plan plan = planRepository.findById(id).orElseThrow(() -> new ApiRequestException("Plan with id " + id + " not found"));
-        return PlanToPlanDTOMapper.INSTANCE.toDto(plan);
+    public Plan getPlan(Long id) {
+        return planRepository.findById(id).orElseThrow(() -> new ApiRequestException("Plan with id " + id + " not found"));
     }
 
     @Override
-    public List<PlanDTO> getAllPlans() {
-        List<Plan> all = planRepository.findAll();
-        List<PlanDTO> plans = new ArrayList<>();
-        for (Plan plan : all) {
-            plans.add(PlanToPlanDTOMapper.INSTANCE.toDto(plan));
+    public List<Plan> getAllPlans() {
+        return planRepository.findAll();
+    }
+
+    @Override
+    public Plan savePlan(Plan plan) {
+        plan = planRepository.save(plan);
+        for (Place place : plan.getPlaces()) {
+            place.setPlan(plan);
+            placeRepository.save(place);
         }
-        return plans;
-    }
-
-    @Override
-    public Plan savePlan(PlanDTO plan) {
-        return planRepository.save(PlanDTOToPlanMapper.INSTANCE.toDto(plan));
+        return plan;
     }
 }

@@ -8,9 +8,13 @@ import {
 } from "react-router-dom";
 import TaskList from './components/taskList'
 import Spender from './components/spender'
-import Program from './components/program'
+import Program from './components/counter/program'
 import TaskForm from './components/taskForm'
 import PotsTest from './components/postTest'
+import Plan from './components/plan/plan'
+import Place from './components/plan/place'
+import Languages from './components/language/languages'
+
 
 class App extends Component {
     render() {
@@ -20,11 +24,14 @@ class App extends Component {
                 <NavBar /*totalCounters = {this.state.counters.filter(c => c.value >0).length}*/
                 />
                 <Switch>
-                    <Route path="/home" component={Program}/>
+                    <Route path="/program" component={Program}/>
                     <Route path="/tasklist" component={TaskList}/>
                     <Route path="/spender" component={Spender}/>
                     <Route path="/taskForm" component={TaskForm}/>
                     <Route path="/postTest" component={PotsTest}/>
+                    <Route path="/planForm" component={Plan}/>
+                    <Route path="/language" component={Languages}/>
+                    <Route path="/placeForm" component={Place}/>
                 </Switch>
             </Router>
 

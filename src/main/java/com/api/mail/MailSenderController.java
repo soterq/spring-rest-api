@@ -9,31 +9,31 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@CrossOrigin
+//@RestController
+//@CrossOrigin
 @RequestMapping(MailSenderController.BASE_URL)
 public class MailSenderController {
     public static final String BASE_URL = "/api/v1/sendmail";
-    private final JavaMailSender emailSender;
+//    private final JavaMailSender emailSender;
     @Value("${spring.mail.username}")
     String sendTo;
-    public MailSenderController(JavaMailSender emailSender) {
-        this.emailSender = emailSender;
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void sendSimpleMessage(@RequestBody MailMessageDto mailMessageDto) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        MailMessage mailMessage = MailMessageMapper.INSTANCE.fromDto(mailMessageDto);
-        message.setFrom(mailMessage.getSendFrom());
-        message.setTo(sendTo);
-        message.setSubject(mailMessage.getTitle());
-        String text ="Message from : " + mailMessage.getSendFrom() + "\n" +
-                "Message : \n" + mailMessage.getMessage();
-        message.setText(text);
-        emailSender.send(message);
-    }
+//    public MailSenderController(JavaMailSender emailSender) {
+//        this.emailSender = emailSender;
+//    }
+//
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.OK)
+//    public void sendSimpleMessage(@RequestBody MailMessageDto mailMessageDto) {
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        MailMessage mailMessage = MailMessageMapper.INSTANCE.fromDto(mailMessageDto);
+//        message.setFrom(mailMessage.getSendFrom());
+//        message.setTo(sendTo);
+//        message.setSubject(mailMessage.getTitle());
+//        String text ="Message from : " + mailMessage.getSendFrom() + "\n" +
+//                "Message : \n" + mailMessage.getMessage();
+//        message.setText(text);
+//        emailSender.send(message);
+//    }
 
 
 }

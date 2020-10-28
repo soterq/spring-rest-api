@@ -2,7 +2,7 @@ package com.api.domain;
 
 public enum Languages {
     ROMANA("Romana"), RUSA("Rusa"), ENGLEZA("Engleza"),
-    URCAINEANA("Ucraineana"), GAGAUZA("gagauza"),
+    URCAINEANA("Ucraineana"), GAGAUZA("Gagauza"),
     IATLIANA("Italiana"), GERMANA("Franceza"), FRANCEZA("Engleza"), SPANIOLA("Spaniola");
 
     private final String language;

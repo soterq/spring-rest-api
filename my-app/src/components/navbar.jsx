@@ -9,11 +9,14 @@ class NavigationBar extends Component {
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="/home">Navbar</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link href="/program">Program</Nav.Link>
                         <Nav.Link href="/tasklist">Task List</Nav.Link>
                         <Nav.Link href="/spender">Spender</Nav.Link>
-                        <Nav.Link href="/taskForm">TaskForm</Nav.Link>
-                        <Nav.Link href="/postTest">postTest</Nav.Link>
+                        <Nav.Link href="/taskForm">Task Form</Nav.Link>
+                        <Nav.Link href="/postTest">Post Test</Nav.Link>
+                        <Nav.Link href="/planForm">Plan Form</Nav.Link>
+                        <Nav.Link href="/placeForm">Place Form</Nav.Link>
+                        <Nav.Link href="/language">Languages Form</Nav.Link>s
                     </Nav>
                 </Navbar>
             </div>);

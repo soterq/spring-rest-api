@@ -16,8 +16,7 @@ class Program extends Component {
         const index = newCounters.indexOf(counter);
         newCounters[index] = {...counter};
         newCounters[index].value++;
-        this.setState({...newCounters});
-
+        this.setState({counters: [...newCounters]});
     }
 
     handleReset = () => {
@@ -31,13 +30,12 @@ class Program extends Component {
     handleDelete = counterId => {
         const newCounters = this.state.counters.filter(c => c.id !== counterId);
         // this.state.counters = counters;
-        this.setState({...newCounters});
-
+        this.setState({counters: [...newCounters]});
     }
 
     handleAdd = () => {
         const newCounters = [...this.state.counters, {id: this.state.counters.length + 1, value: 0}]
-        this.setState({...newCounters});
+        this.setState({counters: [...newCounters]});
     }
 
     render() {

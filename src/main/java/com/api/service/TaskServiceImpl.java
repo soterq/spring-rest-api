@@ -5,7 +5,6 @@ import com.api.domain.dto.TaskDTO;
 import com.api.exceptions.ApiRequestException;
 import com.api.helpers.DataAndTimeHelper;
 import com.api.mappers.TaskDTOToTaskMapper;
-import com.api.mappers.TaskToTaskDTOMapper;
 import com.api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,29 +19,23 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskDTO findTask(Long id) {
-        Task task = taskRepository.findById(id).orElseThrow(() -> new ApiRequestException("Task with id " + id + " not found"));
-        return  TaskToTaskDTOMapper.INSTANCE.toDto(task);
+    public Task findTask(Long id) {
+        return  taskRepository.findById(id).orElseThrow(() -> new ApiRequestException("Task with id " + id + " not found"));
     }
 
     @Override
-    public List<TaskDTO> findTasks() {
-        List<Task> all = taskRepository.findAll();
-        List<TaskDTO> taskDTOS = new ArrayList<>();
-        for (Task task : all) {
-            taskDTOS.add(TaskToTaskDTOMapper.INSTANCE.toDto(task));
-        }
-        return taskDTOS;
+    public List<Task> findTasks() {
+        return taskRepository.findAll();
     }
 
     @Override
-    public Task saveTask(TaskDTO task) {
+    public Task saveTask(Task task) {
         if(task.getTitle().isEmpty() || task.getTitle()==null){
             throw new ApiRequestException("Title should not be null");
         }
         task.setCreationDate(DataAndTimeHelper.getCurrentDataAndTime());
 
-        return taskRepository.save(TaskDTOToTaskMapper.Instance.dtoToRequest(task));
+        return taskRepository.save(task);
     }
 
     @Override

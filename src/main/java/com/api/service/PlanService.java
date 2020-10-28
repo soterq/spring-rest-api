@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PlanService {
 
-    PlanDTO getPlan(Long id);
-    List<PlanDTO> getAllPlans();
-    Plan savePlan(PlanDTO plan);
+    Plan getPlan(Long id);
+    List<Plan>getAllPlans();
+    Plan savePlan(Plan plan);
 
 }

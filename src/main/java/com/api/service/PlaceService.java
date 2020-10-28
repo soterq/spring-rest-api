@@ -6,10 +6,10 @@ import com.api.domain.dto.PlaceDTO;
 import java.util.List;
 
 public interface PlaceService {
-    PlaceDTO getPlace(Long id);
+    Place getPlace(Long id);
 
-    List<PlaceDTO> getPlaces();
+    List<Place> getPlaces();
 
-     Place savePlace(PlaceDTO place);
+    Place savePlace(Place place);
 
 }

@@ -2,10 +2,12 @@ package com.api.controllers;
 
 import com.api.domain.Task;
 import com.api.domain.dto.TaskDTO;
+import com.api.mappers.TaskDTOToTaskMapper;
 import com.api.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,26 +16,31 @@ import java.util.List;
 public class TaskController {
     public static final String BASE_URL = "/api/v1/tasks";
     private final TaskService taskService;
+    public final TaskDTOToTaskMapper taskMapper ;
 
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, TaskDTOToTaskMapper taskMapper) {
         this.taskService = taskService;
+        this.taskMapper = taskMapper;
     }
 
     @GetMapping
     List<TaskDTO> getAllTasks() {
-        return taskService.findTasks();
+        List<TaskDTO>  tasks = new ArrayList<>();
+        for (Task task:taskService.findTasks()) {
+            tasks.add(taskMapper.toDTO(task));
+        }
+        return tasks;
     }
 
     @GetMapping("/{id}")
     public TaskDTO findTaskById(@PathVariable Long id) {
-        return taskService.findTask(id);
+        return taskMapper.toDTO(taskService.findTask(id));
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-//    public TaskDTO saveTask(@RequestBody TaskDTO task) {
-    public Task saveTask(@RequestBody TaskDTO task) {
-        return taskService.saveTask(task);
+    public TaskDTO saveTask(@RequestBody TaskDTO task) {
+        return taskMapper.toDTO(taskService.saveTask(taskMapper.fromDTO(task)));
     }
 
     @DeleteMapping("/{id}")
