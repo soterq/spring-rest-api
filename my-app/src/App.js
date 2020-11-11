@@ -13,7 +13,7 @@ import TaskForm from './components/taskForm'
 import PotsTest from './components/postTest'
 import Plan from './components/plan/plan'
 import Place from './components/plan/place'
-import Languages from './components/language/languages'
+import LanguageProgram from './components/language/LanguageProgram'
 
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
                     <Route path="/taskForm" component={TaskForm}/>
                     <Route path="/postTest" component={PotsTest}/>
                     <Route path="/planForm" component={Plan}/>
-                    <Route path="/language" component={Languages}/>
+                    <Route path="/language" component={LanguageProgram}/>
                     <Route path="/placeForm" component={Place}/>
                 </Switch>
             </Router>

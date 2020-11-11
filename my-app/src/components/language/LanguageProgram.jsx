@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LanguageList from "./LanguageList";
 
-class Languages extends Component {
+class LanguageProgram extends Component {
     state = {
         languages: []
     };
@@ -20,7 +20,7 @@ class Languages extends Component {
     render() {
         return (
             <React.Fragment>
-                <main className="container">
+                <main>
                     <LanguageList
                         languages={this.state.languages}
                         onDelete={this.handleDelete}
@@ -32,4 +32,4 @@ class Languages extends Component {
     }
 }
 
-export default Languages;
+export default LanguageProgram;

@@ -30,8 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
 /my-app/debug.log
-
+my-app/node_modules
 

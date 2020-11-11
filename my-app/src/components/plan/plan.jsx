@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
+import Place from "./place";
 
 class Plan extends Component {
     constructor() {
         super();
         this.state = {
-            id: '',
             title: '',
             places: [
                 {
-                    id: 250,
-                    name: "Botanic Garden",
-                    description: "Amazing  park a lot of plants",
+                    name: "",
+                    description: "",
                     spokenLanguage: [
                         "",
                     ],
@@ -35,8 +34,11 @@ class Plan extends Component {
     }
 
     handleSubmit = (event) => {
-        const basePath = 'http://localhost:8080/api/v1/plans';
+        event.preventDefault();
+        const basePath = 'http://localhost:8080/api';
+        // const basePath = 'http://localhost:8080/api/v1/plans';
         console.log(this.state)
+
         fetch(basePath, {
             method: 'POST',
             headers: {
@@ -47,7 +49,6 @@ class Plan extends Component {
         }).then(function (response) {
             return response;
         })
-        event.preventDefault();
     }
 
     render() {
@@ -58,6 +59,7 @@ class Plan extends Component {
                     <input placeholder="Enter Title Here ..." className="form-control" id="title" type="text"
                            value={this.state.value} name="title" onChange={this.handleChange}/>
                 </div>
+                <Place />
                 <button type="submit" className="btn btn-primary btn-lg">Submit</button>
             </form>
         </div>);
