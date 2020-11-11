@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LanguageList from "./LanguageList";
 
-class Language extends Component {
+class Languages extends Component {
     state = {
         languages: []
     };
@@ -32,4 +32,4 @@ class Language extends Component {
     }
 }
 
-export default Language;
+export default Languages;
