@@ -1,14 +1,11 @@
 package com.api.service;
 
 import com.api.domain.Task;
-import com.api.domain.dto.TaskDTO;
 import com.api.exceptions.ApiRequestException;
 import com.api.helpers.DataAndTimeHelper;
-import com.api.mappers.TaskDTOToTaskMapper;
 import com.api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {

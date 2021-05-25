@@ -2,7 +2,7 @@ package com.api.controllers;
 
 import com.api.domain.Task;
 import com.api.domain.dto.TaskDTO;
-import com.api.mappers.TaskDTOToTaskMapper;
+import com.api.mappers.TaskMapper;
 import com.api.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +16,9 @@ import java.util.List;
 public class TaskController {
     public static final String BASE_URL = "/api/v1/tasks";
     private final TaskService taskService;
-    public final TaskDTOToTaskMapper taskMapper ;
+    public final TaskMapper taskMapper ;
 
-    public TaskController(TaskService taskService, TaskDTOToTaskMapper taskMapper) {
+    public TaskController(TaskService taskService, TaskMapper taskMapper) {
         this.taskService = taskService;
         this.taskMapper = taskMapper;
     }

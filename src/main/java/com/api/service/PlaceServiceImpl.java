@@ -1,21 +1,19 @@
 package com.api.service;
 
 import com.api.domain.Place;
-import com.api.domain.dto.PlaceDTO;
 import com.api.exceptions.ApiRequestException;
-import com.api.mappers.PlaceDtoToPlaceMapper;
+import com.api.mappers.PlaceMapper;
 import com.api.repository.PlaceRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PlaceServiceImpl implements PlaceService {
     private final PlaceRepository placeRepository;
-    private final PlaceDtoToPlaceMapper placeMapper;
+    private final PlaceMapper placeMapper;
 
-    public PlaceServiceImpl(PlaceRepository placeRepository, PlaceDtoToPlaceMapper placeMapper) {
+    public PlaceServiceImpl(PlaceRepository placeRepository, PlaceMapper placeMapper) {
         this.placeRepository = placeRepository;
         this.placeMapper = placeMapper;
     }

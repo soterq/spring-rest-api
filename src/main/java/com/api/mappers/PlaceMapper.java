@@ -3,9 +3,11 @@ package com.api.mappers;
 import com.api.domain.Place;
 import com.api.domain.dto.PlaceDTO;
 import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
+@Component
 @Mapper(componentModel = "spring")
-public interface PlaceDtoToPlaceMapper {
+public interface PlaceMapper {
 //    PlaceDtoToPlaceMapper INSTANCE = Mappers.getMapper(PlaceDtoToPlaceMapper.class);
 //
 //    @Mappings({

@@ -2,7 +2,7 @@ package com.api.controllers;
 
 import com.api.domain.Plan;
 import com.api.domain.dto.PlanDTO;
-import com.api.mappers.PlanDTOToPlanMapper;
+import com.api.mappers.PlanMapper;
 import com.api.service.PlanService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +15,9 @@ import java.util.List;
 public class PlanController {
     public static final String BASE_URL = "/api/v1/plans";
     public final PlanService planService;
-    public final PlanDTOToPlanMapper planMapper;
+    public final PlanMapper planMapper;
 
-    public PlanController(PlanService planService, PlanDTOToPlanMapper planMapper) {
+    public PlanController(PlanService planService, PlanMapper planMapper) {
         this.planService = planService;
         this.planMapper = planMapper;
     }
